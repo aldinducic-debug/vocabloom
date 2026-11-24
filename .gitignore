@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.browser-profile/
+config.toml
+deals.sqlite3
+deals.html

@@ -1,0 +1,51 @@
+# Copy to config.toml and edit.
+
+[settings]
+deal_threshold = 0.30        # flag listings 30%+ under the typical asking price
+min_comparables = 5          # need this many prices before "typical" means anything
+days_since_listed = 7
+scroll_rounds = 6            # how far down each results page to scroll
+delay_seconds = [4, 9]       # random pause between actions — keep it slow
+interval_minutes = 60        # for `watch`
+ntfy_topic = ""              # e.g. "my-deals-8f3k2" → phone pushes via the free ntfy app
+# global_exclude = ["broken", "for parts", "wanted"]
+
+# ── Areas ────────────────────────────────────────────────────────────────
+# `location` is what appears in the Marketplace URL after you pick a city:
+#   facebook.com/marketplace/austin/...           → "austin"
+#   facebook.com/marketplace/108424279189115/...  → "108424279189115"
+
+[[areas]]
+name = "Home"
+location = "austin"
+radius_km = 40
+
+[[areas]]
+name = "Mom & Dad"
+location = "dallas"
+radius_km = 30
+note = "Mom can pick it up — we visit at Thanksgiving"
+
+[[areas]]
+name = "Sis"
+location = "houston"
+radius_km = 25
+note = "Sis drives up every other weekend"
+
+# ── Searches ─────────────────────────────────────────────────────────────
+
+[[searches]]
+query = "standing desk"
+max_price = 250
+target_price = 80            # always flag anything this cheap
+
+[[searches]]
+query = "ps5"
+min_price = 150
+max_price = 450
+exclude = ["controller only", "box only", "games only"]
+
+[[searches]]
+query = "kayak"
+max_price = 600
+areas = ["Home", "Sis"]      # only search these areas
